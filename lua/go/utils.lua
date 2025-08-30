@@ -281,17 +281,12 @@ local function fs_write(path, data)
   end)
 end
 
-local cache_dir = fn.stdpath('cache')
 utils.log = function(...)
   if not _GO_NVIM_CFG or not _GO_NVIM_CFG.verbose then
     return
   end
   local l = select('#', ...)
-  local arg = { ... }
 
-  local log_default = string.format('%s%sgonvim.log', cache_dir, utils.sep())
-
-  local log_path = _GO_NVIM_CFG.log_path or log_default
   local str = '  '
 
   local info = debug.getinfo(2, 'Sl')
@@ -307,6 +302,7 @@ utils.log = function(...)
     end
   end
   if #str > 2 then
+    local log_path = _GO_NVIM_CFG.log_path
     if log_path ~= nil and #log_path > 3 then
       fs_write(log_path, str .. '\n')
     else

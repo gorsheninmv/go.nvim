@@ -792,7 +792,8 @@ require('go').setup({
   gotest_case_exact_match = true, -- true: run test with ^Testname$, false: run test with TestName
   comment_placeholder = '' ,  -- comment_placeholder your cool placeholder e.g. 󰟓       
   icons = {breakpoint = '🧘', currentpos = '🏃'},  -- setup to `false` to disable icons setup
-  verbose = false,  -- output loginf in messages
+  verbose = false,  -- enable/disable logging (default location: vim.fn.stdpath('cache') .. /gonvim.log)
+                    -- set log_path to change location
   lsp_semantic_highlights = false, -- use highlights from gopls, disable by default as gopls/nvim not compatible
   lsp_cfg = false, -- true: use non-default gopls setup specified in go/lsp.lua
                    -- false: do nothing

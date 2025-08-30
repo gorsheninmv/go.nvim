@@ -1,6 +1,5 @@
 -- some of commands extracted from gopher.vim
 local go = {}
-local vfn = vim.fn
 
 -- Keep this in sync with README.md
 -- Keep this in sync with doc/go.txt
@@ -23,7 +22,7 @@ _GO_NVIM_CFG = {
   icons = { breakpoint = '🧘', currentpos = '🏃' }, -- set to false to disable icons setup
   sign_priority = 7, -- set priority of signs used by go.nevim
   verbose = false,
-  log_path = vfn.expand('$HOME') .. '/tmp/gonvim.log',
+  log_path = vim.fs.joinpath(vim.fn.stdpath('log'), 'gonvim.log'),
   lsp_cfg = false, -- false: do nothing
   -- true: apply non-default gopls setup defined in go/gopls.lua
   -- if lsp_cfg is a table, merge table with with non-default gopls setup in go/gopls.lua, e.g.
